@@ -48,19 +48,11 @@ export default function Footer() {
 
             </div>
             
-            {/* Copyright & Source */}
-            <div className="mt-12 text-center relative z-10 space-y-2">
+            {/* Copyright */}
+            <div className="mt-12 text-center relative z-10">
                 <p className="text-slate-500 text-sm">
                     © {currentYear} Tawfik Benchagra. All rights reserved.
                 </p>
-                <a 
-                    href="https://github.com/TawfikBenchagra/TawfikBenchagra.github.io" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="inline-block text-xs text-slate-600 hover:text-indigo-400 transition-colors"
-                >
-                    Built with Next.js & Framer Motion • View Source Code
-                </a>
             </div>
         </footer>
     );
