@@ -2,63 +2,63 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ExternalLink, Github, Database, Briefcase, CalendarCheck, Network, Users, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, Database, Briefcase, CalendarCheck, Network, Users } from 'lucide-react';
 
 const projects = [
     {
         id: 1,
         title: "API_Manager",
-        description: "A robust Laravel API application designed to optimize university platforms. Features administrative control and high-performance data pipelines.",
-        tech: ["Laravel", "PHP", "MySQL"],
+        description: "A robust Laravel API application designed to optimize and manage university platforms. Features administrative control, data pipelines for large datasets, and comprehensive system user management.",
+        tech: ["PHP", "Laravel", "MySQL", "REST API"],
         icon: Network,
         link: "https://github.com/TawfikBenchagra/API_Manager",
         image: "/images/projects/api_manager.png",
-        span: "lg:col-span-2 lg:row-span-2",
-        color: "indigo"
+        span: "md:col-span-2 md:row-span-2",
+        gradient: "from-blue-500/10 via-slate-900 to-slate-900 border-blue-500/20"
     },
     {
         id: 2,
-        title: "Club System",
-        description: "Advanced platform for university club coordination, association management, and competition tracking.",
-        tech: ["PHP", "JavaScript"],
+        title: "Club Management System",
+        description: "An advanced PHP-based platform to manage university clubs, associations, and competitions. Includes administrative interfaces, dynamic filtering, and visual badges for entity categorization.",
+        tech: ["PHP", "JavaScript", "MySQL", "CSS"],
         icon: Users,
         link: "https://github.com/TawfikBenchagra/Clubs",
         image: "/images/projects/club_system.png",
-        span: "lg:col-span-1 lg:row-span-2",
-        color: "purple"
+        span: "md:col-span-1 md:row-span-2",
+        gradient: "from-orange-500/10 via-slate-900 to-slate-900 border-orange-500/20"
     },
     {
         id: 3,
         title: "Gestion De Conge",
-        description: "Comprehensive leave management and employee tracking dashboard for streamlined administration.",
-        tech: ["Laravel", "Blade"],
+        description: "A comprehensive leave management system built with PHP & Laravel. Streamlines employee time-off requests, approvals, and absence tracking in a centralized dashboard.",
+        tech: ["PHP", "Laravel", "MySQL", "JavaScript"],
         icon: CalendarCheck,
         link: "https://github.com/TawfikBenchagra/Gestion-De-Conge",
         image: "/images/projects/gestion_conge.png",
-        span: "lg:col-span-1 lg:row-span-1",
-        color: "blue"
+        span: "md:col-span-1 md:row-span-1",
+        gradient: "from-indigo-500/10 via-slate-900 to-slate-900 border-indigo-500/20"
     },
     {
         id: 4,
         title: "PFE MANAGER",
-        description: "Graduation project management platform helping faculty and students organize academic submissions.",
-        tech: ["PHP", "Laravel"],
+        description: "End-of-studies project management platform. Built to help students and faculty organize, submit, and evaluate graduation projects.",
+        tech: ["PHP", "Laravel", "Blade"],
         icon: Briefcase,
         link: "https://github.com/TawfikBenchagra/PFE-MANAGER",
         image: "/images/projects/pfe_manager.png",
-        span: "lg:col-span-1 lg:row-span-1",
-        color: "emerald"
+        span: "md:col-span-1 md:row-span-1",
+        gradient: "from-emerald-500/10 via-slate-900 to-slate-900 border-emerald-500/20"
     },
     {
         id: 5,
         title: "PR-SENCE",
-        description: "Dedicated attendance monitoring and administrative logging system for institutional records.",
-        tech: ["Software Eng", "DB"],
+        description: "A dedicated repository for presence and attendance tracking. Provides essential logging and monitoring capabilities for administrative records.",
+        tech: ["Software Engineering", "Tracking"],
         icon: Database,
         link: "https://github.com/TawfikBenchagra/pr-sence",
         image: "/images/projects/prsence.png",
-        span: "lg:col-span-1 lg:row-span-1",
-        color: "pink"
+        span: "md:col-span-1 md:row-span-1",
+        gradient: "from-purple-500/10 via-slate-900 to-slate-900 border-purple-500/20"
     }
 ];
 
@@ -66,7 +66,7 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.1 },
+        transition: { staggerChildren: 0.15 },
     },
 };
 
@@ -75,43 +75,33 @@ const itemVariants = {
     visible: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+        transition: { duration: 0.6, ease: 'easeOut' },
     },
 };
 
 export default function Projects() {
     return (
-        <section id="projects" className="relative py-32 bg-[#020617] overflow-hidden">
-            
-            {/* Background Accents */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
-
+        <section id="projects" className="relative py-24 bg-slate-950 min-h-screen">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="flex flex-col md:flex-row items-baseline justify-between mb-20 gap-8"
-                >
-                    <div className="space-y-4">
-                        <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">
-                            Selected <span className="text-indigo-400 italic">Work.</span>
-                        </h2>
-                        <div className="h-1.5 w-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 w-full">
+                    <div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Featured Projects</h2>
+                        <div className="h-1 w-24 bg-indigo-500 rounded-full" />
                     </div>
-                    <p className="text-slate-400 text-lg max-w-lg font-light leading-relaxed">
-                        A curation of systems designed with focus on performance, scalability, and seamless user interaction.
+                    <p className="text-slate-400 text-lg max-w-lg">
+                        A selection of my recent software development work, highlighting expertise in back-end engineering, database management, and architecture.
                     </p>
-                </motion.div>
+                </div>
 
+                {/* Bento Grid */}
                 <motion.div 
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-100px' }}
-                    className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]"
                 >
                     {projects.map((project) => {
                         const Icon = project.icon;
@@ -120,45 +110,44 @@ export default function Projects() {
                             <motion.div
                                 key={project.id}
                                 variants={itemVariants}
-                                whileHover={{ y: -10 }}
-                                className={`group relative rounded-[2.5rem] overflow-hidden bg-slate-900/40 border border-white/5 transition-all duration-500 hover:border-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/10 ${project.span}`}
+                                whileHover={{ y: -5 }}
+                                className={`group relative rounded-3xl overflow-hidden glassmorphism border bg-slate-900 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 ${project.span}`}
                             >
-                                <div className="absolute inset-0 z-0">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent" />
-                                </div>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500 z-0"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent z-0`} />
+                                <div className="absolute inset-0 bg-slate-950/20 backdrop-blur-[2px] z-0" />
                                 
-                                <div className="relative z-10 p-10 h-full flex flex-col">
-                                    <div className="flex justify-between items-start mb-8">
-                                        <div className="p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md group-hover:bg-indigo-500 group-hover:border-indigo-400 transition-all duration-500">
-                                            <Icon className="text-white w-6 h-6" />
+                                <div className="relative z-10 p-8 h-full flex flex-col">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <div className="p-3 bg-slate-800/50 rounded-2xl border border-slate-700/50 group-hover:scale-110 transition-transform duration-300">
+                                            <Icon className="text-slate-300 w-6 h-6" />
                                         </div>
                                         <a 
                                             href={project.link} 
                                             target="_blank" 
                                             rel="noreferrer"
-                                            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white text-white hover:text-slate-950 rounded-full border border-white/10 transition-all duration-300 text-xs font-bold uppercase tracking-widest"
+                                            className="p-3 bg-slate-800/50 hover:bg-indigo-500 hover:text-white text-slate-400 rounded-full border border-slate-700/50 transition-all duration-300"
                                         >
-                                            GitHub <ArrowUpRight className="w-3 h-3" />
+                                            <ExternalLink className="w-5 h-5" />
                                         </a>
                                     </div>
                                     
-                                    <div className="mt-auto space-y-4">
-                                        <h3 className="text-3xl font-bold text-white tracking-tight group-hover:text-indigo-400 transition-colors">
+                                    <div className="mt-auto">
+                                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
                                             {project.title}
                                         </h3>
-                                        <p className="text-slate-400 text-sm md:text-base leading-relaxed font-light line-clamp-2">
+                                        <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6 line-clamp-3">
                                             {project.description}
                                         </p>
                                         
-                                        <div className="flex flex-wrap gap-2 pt-4">
+                                        <div className="flex flex-wrap gap-2">
                                             {project.tech.map((t) => (
-                                                <span key={t} className="px-3 py-1 text-[10px] font-bold tracking-tighter uppercase text-indigo-300 bg-indigo-500/10 rounded-lg border border-indigo-500/20">
+                                                <span key={t} className="px-3 py-1 text-xs font-semibold tracking-wider uppercase text-slate-300 bg-slate-800/80 rounded-full border border-slate-700">
                                                     {t}
                                                 </span>
                                             ))}
@@ -166,31 +155,25 @@ export default function Projects() {
                                     </div>
                                 </div>
                                 
-                                {/* Overlay glow */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-transparent to-purple-500/0 group-hover:from-indigo-500/5 group-hover:to-purple-500/5 transition-all duration-700 pointer-events-none" />
+                                {/* Subtle Hover Glow Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/0 via-transparent to-indigo-500/0 group-hover:from-indigo-500/10 transition-colors duration-500 pointer-events-none z-0" />
                             </motion.div>
                         );
                     })}
                 </motion.div>
                 
-                {/* Profile Link */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-20 flex justify-center"
-                >
+                {/* Call to action */}
+                <div className="mt-16 flex justify-center">
                     <a 
                         href="https://github.com/TawfikBenchagra" 
                         target="_blank" 
                         rel="noreferrer"
-                        className="group flex items-center gap-4 px-10 py-5 rounded-full bg-slate-900 border border-white/10 text-white font-bold hover:bg-white hover:text-slate-950 transition-all shadow-xl"
+                        className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-slate-900 border border-slate-800 text-white font-medium hover:bg-slate-800 hover:border-slate-700 transition-all group shadow-lg"
                     >
-                        <Github className="w-6 h-6" />
-                        Explore Complete Archive
-                        <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        <Github className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+                        View Full GitHub Profile
                     </a>
-                </motion.div>
+                </div>
 
             </div>
         </section>
