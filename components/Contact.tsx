@@ -1,152 +1,109 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, ArrowRight, MessageSquare } from 'lucide-react';
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        
-        // Construct the mailto link dynamically
-        const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-        
-        window.location.href = `mailto:t.benchagra@usms.ac.ma?subject=${subject}&body=${body}`;
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
     return (
-        <section id="contact" className="relative py-24 min-h-screen bg-slate-950 flex flex-col justify-center overflow-hidden">
+        <section id="contact" className="relative py-32 bg-[#020617] overflow-hidden">
             
-            {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
-            
-            <div className="max-w-5xl mx-auto px-6 md:px-12 w-full">
-                
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Let's Connect</h2>
-                    <div className="h-1 w-24 bg-indigo-500 rounded-full mx-auto mb-6" />
-                    <p className="text-slate-400 text-lg max-w-xl mx-auto">
-                        Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
-                    </p>
-                </motion.div>
+            {/* Background Aura */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none" />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     
-                    {/* Contact Info */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -20 }}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="flex flex-col justify-center space-y-8"
+                        className="space-y-10"
                     >
-                        <div className="glassmorphism bg-slate-900/50 border border-slate-800 p-8 rounded-3xl h-full flex flex-col justify-center">
-                            <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
-                            
-                            <div className="space-y-6">
-                                <a href="mailto:t.benchagra@usms.ac.ma" className="flex items-start gap-4 group">
-                                    <div className="p-3 bg-indigo-500/10 rounded-xl group-hover:bg-indigo-500/20 transition-colors border border-indigo-500/20">
-                                        <Mail className="text-indigo-400 w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-1">Email</p>
-                                        <p className="text-lg text-slate-200 group-hover:text-indigo-400 transition-colors">t.benchagra@usms.ac.ma</p>
-                                    </div>
-                                </a>
+                        <div className="space-y-4">
+                            <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-tight">
+                                Let's <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Collaborate.</span>
+                            </h2>
+                            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-md">
+                                Whether it's a research initiative, a software architecture challenge, or just a conversation about the future of tech—my inbox is always open.
+                            </p>
+                        </div>
 
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-indigo-500/10 rounded-xl border border-indigo-500/20">
-                                        <MapPin className="text-indigo-400 w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-1">Location</p>
-                                        <p className="text-lg text-slate-200">Morocco</p>
-                                    </div>
+                        <div className="space-y-6">
+                            <a 
+                                href="mailto:tawfikbenchagra1@gmail.com" 
+                                className="group flex items-center gap-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white hover:border-white transition-all duration-500"
+                            >
+                                <div className="p-4 bg-indigo-500 rounded-2xl group-hover:scale-110 transition-transform shadow-lg shadow-indigo-500/20">
+                                    <Mail className="w-6 h-6 text-white" />
                                 </div>
+                                <div>
+                                    <p className="text-sm text-slate-400 uppercase tracking-widest font-bold mb-1">Email Me</p>
+                                    <p className="text-xl md:text-2xl font-bold text-white group-hover:text-slate-950 transition-colors">tawfikbenchagra1@gmail.com</p>
+                                </div>
+                                <ArrowRight className="w-6 h-6 ml-auto text-slate-600 group-hover:text-slate-950 group-hover:translate-x-2 transition-all" />
+                            </a>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <a 
+                                    href="https://linkedin.com/in/tawfikbenchagra" 
+                                    target="_blank" 
+                                    rel="noreferrer"
+                                    className="group flex flex-col gap-4 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-[#0A66C2] transition-all duration-500"
+                                >
+                                    <Linkedin className="w-8 h-8 text-slate-400 group-hover:text-white transition-colors" />
+                                    <span className="text-lg font-bold text-white">LinkedIn</span>
+                                </a>
+                                <a 
+                                    href="https://github.com/TawfikBenchagra" 
+                                    target="_blank" 
+                                    rel="noreferrer"
+                                    className="group flex flex-col gap-4 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white transition-all duration-500"
+                                >
+                                    <Github className="w-8 h-8 text-slate-400 group-hover:text-slate-950 transition-colors" />
+                                    <span className="text-lg font-bold text-white group-hover:text-slate-950">GitHub</span>
+                                </a>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Contact Form */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
+                        className="relative"
                     >
-                        <form onSubmit={handleSubmit} className="glassmorphism bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -z-10" />
-                            
-                            <div className="space-y-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">Full Name</label>
-                                    <input 
-                                        type="text" 
-                                        id="name" 
-                                        name="name" 
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-slate-950/50 border border-slate-700/50 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all placeholder:text-slate-600"
-                                        placeholder="John Doe"
-                                    />
-                                </div>
-                                
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-2">Email Address</label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email" 
-                                        required
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-slate-950/50 border border-slate-700/50 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all placeholder:text-slate-600"
-                                        placeholder="john@example.com"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                                    <textarea 
-                                        id="message" 
-                                        name="message" 
-                                        required
-                                        rows={4}
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-slate-950/50 border border-slate-700/50 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all placeholder:text-slate-600 resize-none"
-                                        placeholder="Hello Tawfik, I'd like to talk about..."
-                                    />
-                                </div>
-
-                                <motion.button 
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    type="submit" 
-                                    className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all"
-                                >
-                                    <Send size={18} />
-                                    Send Message
-                                </motion.button>
+                        <div className="absolute inset-0 bg-indigo-500/20 rounded-[3rem] rotate-3 blur-3xl" />
+                        <div className="relative p-12 rounded-[3rem] bg-slate-900/60 backdrop-blur-3xl border border-white/10 shadow-2xl space-y-8">
+                            <div className="flex items-center gap-4">
+                                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                                <p className="text-sm text-emerald-400 font-bold uppercase tracking-widest">Available for hire</p>
                             </div>
-                        </form>
+                            <h3 className="text-3xl font-bold text-white">Message Me Directly</h3>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Name</label>
+                                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Doe" />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Email</label>
+                                    <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-indigo-500 transition-colors" placeholder="john@example.com" />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Message</label>
+                                    <textarea className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white h-32 resize-none focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Tell me about your project..." />
+                                </div>
+                                <button className="w-full py-5 rounded-2xl bg-indigo-500 hover:bg-indigo-600 text-white font-bold transition-all shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 active:scale-[0.98]">
+                                    Send Message
+                                    <Send className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
                     </motion.div>
+
                 </div>
+
             </div>
         </section>
     );
